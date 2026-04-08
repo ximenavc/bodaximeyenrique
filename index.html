@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>¡Nos casamos! Xime y Enrique</title>
-		<link rel="icon" type="image/png" href="images/Sello xe (1).png">  <!-- AGREGAR ESTA LÍNEA -->
+	<link rel="icon" type="image/png" href="images/Sello xe.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -124,7 +124,7 @@
 </header>
 
 <!-- Sección de Contador -->
-<section id="fh5co-counter" class="fh5co-section" style="background-image: url(images/Nuestro gran día se acerca… acompáñanos en esta cuenta regresiva (1).png); background-size: cover; background-position: center; min-height: 500px;">
+<section id="fh5co-counter" class="fh5co-section" style="background-image: url(images/Nuestro\ gran\ día\ se\ acerca…\ acompáñanos\ en\ esta\ cuenta\ regresiva\ \(1\).png); background-size: cover; background-position: center; min-height: 500px;">
   <div class="overlay" style="background-color: rgba(255,255,255,0.05);"></div>
   
   <div class="container" style="position: relative; z-index: 10; padding: 60px 0;">
@@ -655,29 +655,39 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
 
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	<!-- Countdown Script - Updated -->
 	<script>
-    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+	// Fecha de la boda: 28 de Noviembre de 2026 a las 16:00 (4:00 PM)
+	var weddingDate = new Date(2026, 10, 28, 16, 0, 0).getTime();
 
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
+	function updateCountdown() {
+		var now = new Date().getTime();
+		var distance = weddingDate - now;
 
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
-</script>
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		// Actualizar los números del countdown
+		document.querySelectorAll('.countdown-number')[0].textContent = days;
+		document.querySelectorAll('.countdown-number')[1].textContent = hours;
+		document.querySelectorAll('.countdown-number')[2].textContent = minutes;
+		document.querySelectorAll('.countdown-number')[3].textContent = seconds;
+
+		// Si la fecha pasó
+		if (distance < 0) {
+			document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '0');
+		}
+	}
+
+	// Actualizar inmediatamente y luego cada segundo
+	updateCountdown();
+	setInterval(updateCountdown, 1000);
+	</script>
 
 	</body>
 </html>

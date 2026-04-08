@@ -1,10 +1,14 @@
 BEGIN:VCALENDAR
 VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
-DTSTART:20261128T180000Z
-DTEND:20261128T200000Z
-SUMMARY:Evento Especial
-DESCRIPTION:Será un día inolvidable en Querétaro
-LOCATION:Querétaro, México
+UID:boda-xime-enrique-2026
+SUMMARY:💌¡Nos casamos! Xime y Enrique
+DTSTART;TZID=America/Mexico_City:20261128T160000
+DTEND;TZID=America/Mexico_City:20261129T020000
+LOCATION:Tierra de Alonso, Querétaro MX
+DESCRIPTION:Los mejores momentos de la vida merecen ser compartidos, verte allí hará que ese día se aún más especial
 END:VEVENT
 END:VCALENDAR
